@@ -19,31 +19,84 @@ var numbers;
 var symbols;
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", function() {
-
+generateBtn.addEventListener("click", function clickFunction() {
     length = prompt("How long would you like your password? (please choose a minimum of 8 characters and a maximum of 128 characters)");
     if (!length) {
         return;
-    }
-    for (length = length; length < 8 || length > 128; alert("Please choose a minimum of 8 characters and a maximum of 128 characters"), length = prompt("How long would you like your password? (please choose a minimum of 8 characters and a maximum of 128 characters)"));  
-    lowerCase = prompt("Would you like LOWERCASE characters in your password?(yes/no)");
+    } else if (length < 8 || length > 128) {
+        alert("Please choose a minimum of 8 characters and a maximum of 128 characters");
+        clickFunction();
+        if (!length) {
+            return;
+        }
+    } else if (isNaN(length)) {
+        alert("Please choose a NUMBER between 8 and 128");
+        clickFunction();
+        if (!length) {
+            return;
+        }
+    } 
+
+    lowerCasePrompt();
+
+    function lowerCasePrompt() {
+    lowerCase = prompt("Would you like LOWERCASE characters in your password?(yes/no)"); 
     if (!lowerCase) {
         return;
+    } else if (lowerCase === "yes" || lowerCase === "no") {
+        upperCasePrompt();
+    } else {
+        alert("please reply with \"yes\" or \"no\"");
+        lowerCasePrompt();
+        if (!lowerCase) {
+            return;
+        }
     }
-    upperCase = prompt("Would you like UPPERCASE characters in your password?(yes/no)");
+}
+
+    function upperCasePrompt() {
+    upperCase = prompt("Would you like UPPERCASE characters in your password?(yes/no)")
     if (!upperCase) {
         return;
+    } else if (upperCase === "yes" || upperCase === "no") {
+    numbersPrompt();  
+    } else {
+        alert("please reply with \"yes\" or \"no\"");
+        upperCasePrompt();
+        if (!upperCase) {
+            return;
+        } 
     }
-    numbers = prompt("Would you like NUMBERS in your password?(yes/no)");
+}
+    
+    function numbersPrompt() {
+    numbers = prompt("Would you like NUMBERS in your password?(yes/no)")
     if (!numbers) {
         return;
+    } else if (numbers === "yes" || numbers === "no") {
+    symbolsPrompt();
+    } else {
+        alert("please reply with \"yes\" or \"no\"");
+        numbersPrompt();
+        if (!numbers) {
+            return;
+        } 
     }
-    symbols = prompt("Would you like SYMBOL characters in your password?(yes/no)");
+}
+    function symbolsPrompt() {
+    symbols = prompt("Would you like SYMBOLS in your password?(yes/no)")
     if (!symbols) {
         return;
-    }
-    
+    } else if (symbols === "yes" || symbols === "no") {
     writePassword();
+    } else {
+        alert("please reply with \"yes\" or \"no\"");
+        symbolsPrompt();
+        if (!symbols) {
+            return;
+        } 
+    }
+}
 }    
 );
 
