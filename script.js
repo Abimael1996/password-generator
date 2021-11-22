@@ -228,5 +228,7 @@ function generatePassword() {
         return upSym;
     } else if (lowerCase === "NO" && upperCase === "NO" && numbers === "YES" && symbols === "YES") {
         return numSym;
+    } else {
+        return " ";
     }
 }
