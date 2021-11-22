@@ -138,6 +138,24 @@ function generatePassword() {
     for (var i = 0; i < length; i++)
     lowUpNum += lowerUpperNumber[Math.floor(Math.random() * lowerUpperNumber.length)];
 
+    var lowerUpperSymbol = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z","0"," ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
+    
+    var lowUpSym = "";
+    for (var i = 0; i < length; i++)
+    lowUpSym += lowerUpperSymbol[Math.floor(Math.random() * lowerUpperSymbol.length)];
+
+    var upperNumberSymbol = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9"," ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
+
+    var upNumSym = "";
+    for (var i = 0; i < length; i++)
+    upNumSym += upperNumberSymbol[Math.floor(Math.random() * upperNumberSymbol.length)];
+
+    var numberlowerSymbol = ["0","1","2","3","4","5","6","7","8","9"," ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~","a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
+   
+    var numLowSym = "";
+    for (var i = 0; i < length; i++)
+    numLowSym += numberlowerSymbol[Math.floor(Math.random() * numberlowerSymbol.length)];
+
     var lowerUpper = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
    
     var lowUp = "";
@@ -155,12 +173,6 @@ function generatePassword() {
     var lowNum = "";
     for (var i = 0; i < length; i++)
     lowNum += lowerNumber[Math.floor(Math.random() * lowerNumber.length)];
-
-    var upperNumberSymbol = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9"," ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
-
-    var upNumSym = "";
-    for (var i = 0; i < length; i++)
-    upNumSym += upperNumberSymbol[Math.floor(Math.random() * upperNumberSymbol.length)];
 
     var upperNumber = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z","0","1","2","3","4","5","6","7","8","9"];
 
@@ -186,27 +198,31 @@ function generatePassword() {
      return randomText;
     } else if (lowerCase === "yes" && upperCase === "no" && numbers === "no" && symbols === "no") {
         return lowerCaseText;
-    } else if (upperCase == "yes" && lowerCase === "no" && numbers === "no" && symbols === "no") {
+    } else if (lowerCase == "no" && upperCase === "yes" && numbers === "no" && symbols === "no") {
         return upperCaseText;
-    } else if (numbers === "yes" && lowerCase === "no" && upperCase === "no" && symbols === "no") {
+    } else if (lowerCase === "no" && upperCase === "no" && numbers === "yes" && symbols === "no") {
         return numberText;
-    } else if (symbols === "yes" && lowerCase === "no" && upperCase === "no" && numbers === "no") {
+    } else if (lowerCase === "no" && upperCase === "no" && numbers === "no" && symbols === "yes") {
         return symbolText;
     } else if (lowerCase === "yes" && upperCase === "yes" && numbers === "yes" && symbols === "no") {
         return lowUpNum;
+    } else if (lowerCase === "yes" && upperCase === "yes" && numbers === "no" && symbols === "yes") {
+        return lowUpSym;
+    } else if (lowerCase === "no" && upperCase === "yes" && numbers === "yes" && symbols === "yes") {
+        return upNumSym;
+    } else if (lowerCase === "yes" && upperCase === "no" && numbers === "yes" && symbols === "yes") {
+        return numLowSym;
     } else if (lowerCase === "yes" && upperCase === "yes" && numbers === "no" && symbols === "no") {
         return lowUp;
-    } else if (lowerCase === "yes" && symbols === "yes" && numbers === "no" && upperCase === "no") {
+    } else if (lowerCase === "yes" && upperCase === "no" && numbers === "no" && symbols === "yes") {
         return lowSym;
-    } else if (lowerCase === "yes" && numbers === "yes" && symbols === "no" && upperCase === "no") {
+    } else if (lowerCase === "yes" && upperCase === "no" && numbers === "yes" && symbols === "no") {
         return lowNum;
-    } else if (lowerCase === "no" && numbers === "yes" && symbols === "yes" && upperCase === "yes") {
-        return upNumSym;
-    } else if (lowerCase === "no" && numbers === "yes" && symbols === "no" && upperCase === "yes") {
+    } else if (lowerCase === "no" && upperCase === "yes" && numbers === "yes" && symbols === "no") {
         return upNum;
-    } else if (lowerCase === "no" && numbers === "no" && symbols === "yes" && upperCase === "yes") {
+    } else if (lowerCase === "no" && upperCase === "yes" && numbers === "no" && symbols === "yes") {
         return upSym;
-    } else if (lowerCase === "no" && numbers === "yes" && symbols === "yes" && upperCase === "no") {
+    } else if (lowerCase === "no" && upperCase === "no" && numbers === "yes" && symbols === "yes") {
         return numSym;
     }
 }
