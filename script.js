@@ -41,9 +41,10 @@ generateBtn.addEventListener("click", function clickFunction() {
 
     function lowerCasePrompt() {
     lowerCase = prompt("Would you like LOWERCASE characters in your password?(yes/no)"); 
+    lowerCase =lowerCase.toUpperCase();
     if (!lowerCase) {
         return;
-    } else if (lowerCase === "yes" || lowerCase === "no") {
+    } else if (lowerCase === "YES" || lowerCase === "NO") {
         upperCasePrompt();
     } else {
         alert("please reply with \"yes\" or \"no\"");
@@ -55,10 +56,11 @@ generateBtn.addEventListener("click", function clickFunction() {
 }
 
     function upperCasePrompt() {
-    upperCase = prompt("Would you like UPPERCASE characters in your password?(yes/no)")
+    upperCase = prompt("Would you like UPPERCASE characters in your password?(yes/no)");
+    upperCase = upperCase.toUpperCase();
     if (!upperCase) {
         return;
-    } else if (upperCase === "yes" || upperCase === "no") {
+    } else if (upperCase === "YES" || upperCase === "NO") {
     numbersPrompt();  
     } else {
         alert("please reply with \"yes\" or \"no\"");
@@ -70,10 +72,11 @@ generateBtn.addEventListener("click", function clickFunction() {
 }
     
     function numbersPrompt() {
-    numbers = prompt("Would you like NUMBERS in your password?(yes/no)")
+    numbers = prompt("Would you like NUMBERS in your password?(yes/no)");
+    numbers = numbers.toUpperCase();
     if (!numbers) {
         return;
-    } else if (numbers === "yes" || numbers === "no") {
+    } else if (numbers === "YES" || numbers === "NO") {
     symbolsPrompt();
     } else {
         alert("please reply with \"yes\" or \"no\"");
@@ -84,10 +87,11 @@ generateBtn.addEventListener("click", function clickFunction() {
     }
 }
     function symbolsPrompt() {
-    symbols = prompt("Would you like SYMBOLS in your password?(yes/no)")
+    symbols = prompt("Would you like SYMBOLS in your password?(yes/no)");
+    symbols = symbols.toUpperCase();
     if (!symbols) {
         return;
-    } else if (symbols === "yes" || symbols === "no") {
+    } else if (symbols === "YES" || symbols === "NO") {
     writePassword();
     } else {
         alert("please reply with \"yes\" or \"no\"");
@@ -138,7 +142,7 @@ function generatePassword() {
     for (var i = 0; i < length; i++)
     lowUpNum += lowerUpperNumber[Math.floor(Math.random() * lowerUpperNumber.length)];
 
-    var lowerUpperSymbol = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z","0"," ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
+    var lowerUpperSymbol = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z","A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"," ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
     
     var lowUpSym = "";
     for (var i = 0; i < length; i++)
@@ -194,35 +198,35 @@ function generatePassword() {
 
 
 
-    if (lowerCase === "yes" && upperCase === "yes" && numbers === "yes" && symbols === "yes") {
+    if (lowerCase === "YES" && upperCase === "YES" && numbers === "YES" && symbols === "YES") {
      return randomText;
-    } else if (lowerCase === "yes" && upperCase === "no" && numbers === "no" && symbols === "no") {
+    } else if (lowerCase === "YES" && upperCase === "NO" && numbers === "NO" && symbols === "NO") {
         return lowerCaseText;
-    } else if (lowerCase == "no" && upperCase === "yes" && numbers === "no" && symbols === "no") {
+    } else if (lowerCase == "NO" && upperCase === "YES" && numbers === "NO" && symbols === "NO") {
         return upperCaseText;
-    } else if (lowerCase === "no" && upperCase === "no" && numbers === "yes" && symbols === "no") {
+    } else if (lowerCase === "NO" && upperCase === "NO" && numbers === "YES" && symbols === "NO") {
         return numberText;
-    } else if (lowerCase === "no" && upperCase === "no" && numbers === "no" && symbols === "yes") {
+    } else if (lowerCase === "NO" && upperCase === "NO" && numbers === "NO" && symbols === "YES") {
         return symbolText;
-    } else if (lowerCase === "yes" && upperCase === "yes" && numbers === "yes" && symbols === "no") {
+    } else if (lowerCase === "YES" && upperCase === "YES" && numbers === "YES" && symbols === "NO") {
         return lowUpNum;
-    } else if (lowerCase === "yes" && upperCase === "yes" && numbers === "no" && symbols === "yes") {
+    } else if (lowerCase === "YES" && upperCase === "YES" && numbers === "NO" && symbols === "YES") {
         return lowUpSym;
-    } else if (lowerCase === "no" && upperCase === "yes" && numbers === "yes" && symbols === "yes") {
+    } else if (lowerCase === "NO" && upperCase === "YES" && numbers === "YES" && symbols === "YES") {
         return upNumSym;
-    } else if (lowerCase === "yes" && upperCase === "no" && numbers === "yes" && symbols === "yes") {
+    } else if (lowerCase === "YES" && upperCase === "NO" && numbers === "YES" && symbols === "YES") {
         return numLowSym;
-    } else if (lowerCase === "yes" && upperCase === "yes" && numbers === "no" && symbols === "no") {
+    } else if (lowerCase === "YES" && upperCase === "YES" && numbers === "NO" && symbols === "NO") {
         return lowUp;
-    } else if (lowerCase === "yes" && upperCase === "no" && numbers === "no" && symbols === "yes") {
+    } else if (lowerCase === "YES" && upperCase === "NO" && numbers === "NO" && symbols === "YES") {
         return lowSym;
-    } else if (lowerCase === "yes" && upperCase === "no" && numbers === "yes" && symbols === "no") {
+    } else if (lowerCase === "YES" && upperCase === "NO" && numbers === "YES" && symbols === "NO") {
         return lowNum;
-    } else if (lowerCase === "no" && upperCase === "yes" && numbers === "yes" && symbols === "no") {
+    } else if (lowerCase === "NO" && upperCase === "YES" && numbers === "YES" && symbols === "NO") {
         return upNum;
-    } else if (lowerCase === "no" && upperCase === "yes" && numbers === "no" && symbols === "yes") {
+    } else if (lowerCase === "NO" && upperCase === "YES" && numbers === "NO" && symbols === "YES") {
         return upSym;
-    } else if (lowerCase === "no" && upperCase === "no" && numbers === "yes" && symbols === "yes") {
+    } else if (lowerCase === "NO" && upperCase === "NO" && numbers === "YES" && symbols === "YES") {
         return numSym;
     }
 }
