@@ -1,25 +1,17 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
 var length;
 var lowerCase;
 var upperCase;
 var numbers;
 var symbols;
 
+var wrongInput = "please reply with \"yes\" or \"no\""
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", function clickFunction() {
+
     length = prompt("How long would you like your password? (please choose a minimum of 8 characters and a maximum of 128 characters)");
     if (!length) {
         return;
@@ -35,19 +27,22 @@ generateBtn.addEventListener("click", function clickFunction() {
         if (!length) {
             return;
         }
-    } 
-
-    lowerCasePrompt();
-
+    } else {
+        lowerCasePrompt();
+    }
+    
     function lowerCasePrompt() {
     lowerCase = prompt("Would you like LOWERCASE characters in your password?(yes/no)"); 
-    lowerCase =lowerCase.toUpperCase();
     if (!lowerCase) {
         return;
-    } else if (lowerCase === "YES" || lowerCase === "NO") {
+    }
+
+    lowerCase = lowerCase.toUpperCase();
+
+    if (lowerCase === "YES" || lowerCase === "NO") {
         upperCasePrompt();
     } else {
-        alert("please reply with \"yes\" or \"no\"");
+        alert(wrongInput);
         lowerCasePrompt();
         if (!lowerCase) {
             return;
@@ -57,13 +52,16 @@ generateBtn.addEventListener("click", function clickFunction() {
 
     function upperCasePrompt() {
     upperCase = prompt("Would you like UPPERCASE characters in your password?(yes/no)");
-    upperCase = upperCase.toUpperCase();
     if (!upperCase) {
         return;
-    } else if (upperCase === "YES" || upperCase === "NO") {
+    }
+
+    upperCase = upperCase.toUpperCase();
+    
+    if (upperCase === "YES" || upperCase === "NO") {
     numbersPrompt();  
     } else {
-        alert("please reply with \"yes\" or \"no\"");
+        alert(wrongInput);
         upperCasePrompt();
         if (!upperCase) {
             return;
@@ -73,13 +71,16 @@ generateBtn.addEventListener("click", function clickFunction() {
     
     function numbersPrompt() {
     numbers = prompt("Would you like NUMBERS in your password?(yes/no)");
-    numbers = numbers.toUpperCase();
     if (!numbers) {
         return;
-    } else if (numbers === "YES" || numbers === "NO") {
+    }
+
+    numbers = numbers.toUpperCase();
+
+    if (numbers === "YES" || numbers === "NO") {
     symbolsPrompt();
     } else {
-        alert("please reply with \"yes\" or \"no\"");
+        alert(wrongInput);
         numbersPrompt();
         if (!numbers) {
             return;
@@ -88,13 +89,16 @@ generateBtn.addEventListener("click", function clickFunction() {
 }
     function symbolsPrompt() {
     symbols = prompt("Would you like SYMBOLS in your password?(yes/no)");
-    symbols = symbols.toUpperCase();
     if (!symbols) {
         return;
-    } else if (symbols === "YES" || symbols === "NO") {
+    }
+    
+    symbols = symbols.toUpperCase();
+
+    if (symbols === "YES" || symbols === "NO") {
     writePassword();
     } else {
-        alert("please reply with \"yes\" or \"no\"");
+        alert(wrongInput);
         symbolsPrompt();
         if (!symbols) {
             return;
@@ -110,7 +114,7 @@ function generatePassword() {
 
     var randomText = "";
     for (var i = 0; i < length; i++)
-    randomText += fullPassword[Math.floor(Math.random() * fullPassword.length)];
+    randomText += fullPassword[Math.floor(Math.random() * fullPassword.length)]; 
 
     var lowerCaseCharacter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"];
 
@@ -232,3 +236,12 @@ function generatePassword() {
         return " ";
     }
 }
+
+// Write password to the #password input
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+  
+    passwordText.value = password;
+  
+  }
